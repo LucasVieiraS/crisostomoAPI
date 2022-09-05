@@ -1,6 +1,8 @@
 package br.com.joik.crisostomoAPI.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +14,9 @@ public class Cliente {
     private Long id;
 
     private String nome;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Contato> contato = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -27,6 +32,14 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Contato> getContato() {
+        return contato;
+    }
+
+    public void setContato(List<Contato> contato) {
+        this.contato = contato;
     }
 
     @Override

@@ -12,7 +12,10 @@ public class Contato {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    private Long idCliente;
+    @ManyToOne
+    @JoinColumn(name = "clienteid")
+    private Cliente cliente;
+
     private String descricao;
     private String contato;
 
@@ -24,12 +27,12 @@ public class Contato {
         this.id = id;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getDescricao() {
